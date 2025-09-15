@@ -1009,11 +1009,19 @@ main {
 
 .project-item > a:hover img { transform: scale(1.1); }
 
-.project-title,
-.project-category {  
+.project-title{
   display: flex;
   gap: 10px;
-  margin-left: 20px; 
+  margin-left: 20px;
+}
+
+
+.project-category {  
+  display: flex;      /* Use Flexbox for a single-direction layout */
+  flex-wrap: wrap;    /* THIS IS THE KEY: Allows items to wrap to the next line */
+  gap: 10px;          /* Creates space between items */
+  margin-left: 20px;
+  max-width: 500px;
 }
 
 .project-title {
@@ -1031,14 +1039,20 @@ main {
 }
 
 .project-category span {
+  /* This prevents the text inside the pill from wrapping */
+  white-space: nowrap; 
+
+  /* Your existing styles */
   margin-top: 10px;
-  padding: 1px;
-  /* border: 1px solid #d9dae0;    */
-  border-radius: 10px;         /* makes pill shape */
-  background-color: #5d5d60;   /* background similar to screenshot */
-  color: white;                /* text color */
+  border-radius: 10px;
+  background-color: #5d5d60;
+  color: white;
   font-size: var(--fs-6, 14px);
   font-weight: var(--fw-300, 400);
+
+  /* Suggestion: Your padding is very small (1px). 
+     This will give it more breathing room like in the images. */
+  padding: 5px 12px; 
 }
 
 
